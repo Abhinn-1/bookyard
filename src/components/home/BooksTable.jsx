@@ -16,7 +16,12 @@ const BooksTable = ({ books }) => {
           <th className='border border-slate-600 rounded-md max-md:hidden'>
             Publish Year
           </th>
-          <th className='border border-slate-600 rounded-md'>Operations</th>
+          <th className='border border-slate-600 rounded-md'>Operations
+          </th>
+          <th>Available
+          </th>
+          <th>Return Date
+          </th>
         </tr>
       </thead>
       <tbody>
