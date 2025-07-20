@@ -34,6 +34,11 @@ const BooksTable = ({ books }) => {
             <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
               {book.publishYear}
             </td>
+            <td>{book.isAvailable ? 'Yes' : 'No'}
+            </td>
+            <td>{book.isAvailable ? '-' : new Date(book.returnDate).toLocaleDateString()}
+            </td>
+
             <td className='border border-slate-700 rounded-md text-center'>
               <div className='flex justify-center gap-x-4'>
                 <Link to={`/books/details/${book._id}`}>
