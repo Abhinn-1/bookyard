@@ -28,6 +28,18 @@ const BookModal = ({ book, onClose }) => {
           <BiUserCircle className='text-red-300 text-2xl' />
           <h2 className='my-1'>{book.author}</h2>
         </div>
+
+        <p className='text-lg'>
+          Available: <span className='font-semibold'>{book.isAvailable ? 'Yes' : 'No'}</span>
+        </p>
+        {!book.isAvailable && (
+          <p className='text-lg'>
+            Return by: <span className='font-semibold'>
+              {book.returnDate ? new Date(book.returnDate).toLocaleDateString() : 'Not set'}
+            </span>
+          </p>
+        )}
+        
         <p className='mt-4'>BookYard is a curated digital haven for book enthusiasts, offering an incredible collection of titles spanning genres, interests, and eras.</p>
         <p className='my-2'>
           A selected title from our trusted catalog of quality literature. Professionally archived for readers who value substance and insight.
