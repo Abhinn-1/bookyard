@@ -28,7 +28,7 @@ const BookModal = ({ book, onClose }) => {
           <BiUserCircle className='text-red-300 text-2xl' />
           <h2 className='my-1'>{book.author}</h2>
         </div>
-        <p className='mt-4'>Anything You want to show</p>
+        <p className='mt-4'>BookYard is a curated digital haven for book enthusiasts, offering an incredible collection of titles spanning genres, interests, and eras.</p>
         <p className='my-2'>
           A selected title from our trusted catalog of quality literature. Professionally archived for readers who value substance and insight.
           Part of our curated collection designed for knowledge and growth. From our vetted collection — where every book meets our quality benchmark.
