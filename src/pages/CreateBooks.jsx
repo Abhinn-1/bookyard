@@ -12,6 +12,9 @@ const CreateBooks = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const [isAvailable, setIsAvailable] = useState(true);
+  const [returnDate, setReturnDate] = useState('');
+
 
   const handleSaveBook = () => {
     const data = {
@@ -66,6 +69,25 @@ const CreateBooks = () => {
             value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
             className='border-2 border-gray-500 px-4 py-2  w-full '
+          />
+        </div>
+        <div className='my-4'>
+          <label className='text-xl mr-4 text-gray-500'>Available</label>
+          <input
+            type='checkbox'
+            checked={isAvailable}
+            onChange={(e) => setIsAvailable(e.target.checked)}
+            className='w-5 h-5'
+          />
+        </div>
+        <div className='my-4'>
+          <label className='text-xl mr-4 text-gray-500'>Return Date</label>
+          <input
+            type='date'
+            value={returnDate}
+            onChange={(e) => setReturnDate(e.target.value)}
+            className='border-2 border-gray-500 px-4 py-2 w-full'
+            disabled={isAvailable}
           />
         </div>
         <button className='p-2 bg-sky-300 m-8' onClick={handleSaveBook}>
