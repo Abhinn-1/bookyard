@@ -26,6 +26,7 @@ const CreateBooks = () => {
     };
 
     setLoading(true);
+    console.log('Data being sent:', data);
     axios
       .post(`${import.meta.env.VITE_API_URL}/books`, data)
       .then(() => {
