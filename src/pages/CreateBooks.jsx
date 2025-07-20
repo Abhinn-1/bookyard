@@ -21,7 +21,7 @@ const CreateBooks = () => {
       title,
       author,
       publishYear,
-      isAvailable,
+      available: isAvailable,
       returnDate: isAvailable ? null : returnDate,
     };
 
