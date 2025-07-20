@@ -16,12 +16,9 @@ const BooksTable = ({ books }) => {
           <th className='border border-slate-600 rounded-md max-md:hidden'>
             Publish Year
           </th>
-          <th className='border border-slate-600 rounded-md'>Operations
-          </th>
-          <th className='border border-slate-600 rounded-md max-md:hidden'>Available
-          </th>
-          <th className='border border-slate-600 rounded-md max-md:hidden'>Return Date
-          </th>
+          <th className='border border-slate-600 rounded-md'>Operations</th>
+          <th className='border border-slate-600 rounded-md max-md:hidden'>Available</th>
+          <th className='border border-slate-600 rounded-md max-md:hidden'>Return Date</th>
         </tr>
       </thead>
       <tbody>
@@ -39,7 +36,6 @@ const BooksTable = ({ books }) => {
             <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
               {book.publishYear}
             </td>
-
             <td className='border border-slate-700 rounded-md text-center'>
               <div className='flex justify-center gap-x-4'>
                 <Link to={`/books/details/${book._id}`}>
@@ -53,15 +49,15 @@ const BooksTable = ({ books }) => {
                 </Link>
               </div>
             </td>
-            <td>{book.isAvailable ? 'Yes' : 'No'}
+            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+              {book.available ? 'Yes' : 'No'}
             </td>
-            <td>{book.isAvailable ? (
-                <td>-</td>
-              ) : (
-                <td>
-                  {book.returnDate ? new Date(book.returnDate).toLocaleDateString() : 'Unknown'}
-                </td>
-              )}
+            <td className='border border-slate-700 rounded-md text-center max-md:hidden'>
+              {book.available
+                ? '-'
+                : book.returnDate
+                ? new Date(book.returnDate).toLocaleDateString()
+                : 'Unknown'}
             </td>
           </tr>
         ))}
@@ -71,3 +67,4 @@ const BooksTable = ({ books }) => {
 };
 
 export default BooksTable;
+
