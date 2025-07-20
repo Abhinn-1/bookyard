@@ -13,6 +13,8 @@ const EditBook = () => {
   const navigate = useNavigate();
   const {id} = useParams();
   const { enqueueSnackbar } = useSnackbar();
+  const [isAvailable, setIsAvailable] = useState(true);
+  const [returnDate, setReturnDate] = useState('');
 
   useEffect(() => {
     setLoading(true);
@@ -22,6 +24,8 @@ const EditBook = () => {
         setPublishYear(response.data.publishYear)
         setTitle(response.data.title)
         setLoading(false);
+        setIsAvailable(response.data.isAvailable);
+        setReturnDate(response.data.returnDate?.substring(0, 10) || '');
       }).catch((error) => {
         setLoading(false);
         alert('An error happened. Please Chack console');
@@ -34,6 +38,8 @@ const EditBook = () => {
       title,
       author,
       publishYear,
+      isAvailable,
+      returnDate: isAvailable ? null : returnDate,
     };
     setLoading(true);
     axios
