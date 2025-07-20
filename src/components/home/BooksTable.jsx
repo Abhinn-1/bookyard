@@ -55,7 +55,13 @@ const BooksTable = ({ books }) => {
             </td>
             <td>{book.isAvailable ? 'Yes' : 'No'}
             </td>
-            <td>{book.isAvailable ? '-' : new Date(book.returnDate).toLocaleDateString()}
+            <td>{book.isAvailable ? (
+                <td>-</td>
+              ) : (
+                <td>
+                  {book.returnDate ? new Date(book.returnDate).toLocaleDateString() : 'Unknown'}
+                </td>
+              )}
             </td>
           </tr>
         ))}
