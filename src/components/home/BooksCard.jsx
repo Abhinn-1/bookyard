@@ -13,10 +13,6 @@ const BooksCard = ({ books }) => {
         <BookSingleCard key={item._id} book={item} />
       ))}
     </div>
-    <p className='text-lg'>Available: <span className='font-semibold'>{book.isAvailable ? 'Yes' : 'No'}</span></p>
-      {!book.isAvailable && (
-      <p className='text-lg'>Return by: <span className='font-semibold'>{new Date(book.returnDate).toLocaleDateString()}</span></p>
-      )}
 
   );
 };
