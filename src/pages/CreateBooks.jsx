@@ -21,7 +21,10 @@ const CreateBooks = () => {
       title,
       author,
       publishYear,
+      isAvailable,
+      returnDate: isAvailable ? null : returnDate,
     };
+
     setLoading(true);
     axios
       .post(`${import.meta.env.VITE_API_URL}/books`, data)
