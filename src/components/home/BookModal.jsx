@@ -30,17 +30,22 @@ const BookModal = ({ book, onClose }) => {
         </div>
 
         <p className='text-lg'>
-          Available: <span className='font-semibold'>{book.isAvailable ? 'Yes' : 'No'}</span>
+          Available: <span className='font-semibold'>{book.available ? 'Yes' : 'No'}</span>
         </p>
-        {book.isAvailable ? (
-          <td>-</td>
-        ) : (
-          <td>
-            {book.returnDate ? new Date(book.returnDate).toLocaleDateString() : 'Unknown'}
-          </td>
-        )}
-        
-        <p className='mt-4'>BookYard is a curated digital haven for book enthusiasts, offering an incredible collection of titles spanning genres, interests, and eras.</p>
+        <p className='text-lg'>
+          Return Date:{' '}
+          <span className='font-semibold'>
+            {book.available
+              ? '-'
+              : book.returnDate
+              ? new Date(book.returnDate).toLocaleDateString()
+              : 'Unknown'}
+          </span>
+        </p>
+
+        <p className='mt-4'>
+          BookYard is a curated digital haven for book enthusiasts, offering an incredible collection of titles spanning genres, interests, and eras.
+        </p>
         <p className='my-2'>
           A selected title from our trusted catalog of quality literature. Professionally archived for readers who value substance and insight.
           Part of our curated collection designed for knowledge and growth. From our vetted collection — where every book meets our quality benchmark.
@@ -51,3 +56,4 @@ const BookModal = ({ book, onClose }) => {
 };
 
 export default BookModal;
+
