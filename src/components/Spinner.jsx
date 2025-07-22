@@ -1,13 +1,14 @@
-// SpinnerDark.jsx
 import React from 'react';
 
-const SpinnerDark = () => {
+const Spinner = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-black">
-      <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-white border-opacity-50"></div>
-      <p className="ml-4 text-white text-lg">Loading... please be patient</p>
+    <div className='fixed inset-0 bg-black bg-opacity-20 flex flex-col items-center justify-center z-50'>
+      <div className='w-16 h-16 border-4 border-t-transparent border-sky-600 rounded-full animate-spin'></div>
+      <p className='mt-4 text-lg text-gray-800 font-semibold text-center px-4'>
+        Please be patient — server might take upto 50 seconds to wake up
+      </p>
     </div>
   );
 };
 
-export default SpinnerDark;
+export default Spinner;
