@@ -1,14 +1,37 @@
+// ButtonSpinner.jsx
 import React from 'react';
 
-const Spinner = () => {
+const ButtonSpinner = ({ loading, children }) => {
   return (
-    <div className='fixed inset-0 bg-black bg-opacity-20 flex flex-col items-center justify-center z-50'>
-      <div className='w-16 h-16 border-4 border-t-transparent border-sky-600 rounded-full animate-spin'></div>
-      <p className='mt-4 text-lg text-gray-800 font-semibold text-center px-4'>
-        Please be patient — server might take upto 50 seconds to wake up
-      </p>
-    </div>
+    <button
+      disabled={loading}
+      className="flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-70"
+    >
+      {loading && (
+        <svg
+          className="animate-spin h-5 w-5 mr-2 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          ></circle>
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8v8z"
+          ></path>
+        </svg>
+      )}
+      {loading ? 'Processing...' : children}
+    </button>
   );
 };
 
-export default Spinner;
+export default ButtonSpinner;
